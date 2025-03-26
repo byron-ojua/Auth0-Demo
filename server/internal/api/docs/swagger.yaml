@@ -5,12 +5,12 @@ info:
     email: byronojua@firstlaunch.dev
     name: Byron Ojua-Nice
     url: http://firstlaunch.dev
-  description: This is the API for the Shelfie application.
+  description: This is the API for the Auth0 demo
   license:
     name: TBD
     url: TBD
   termsOfService: TBD
-  title: Shelfie
+  title: Auth0 Demo API
   version: "1.0"
 paths: {}
 securityDefinitions:

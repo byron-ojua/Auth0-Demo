@@ -5,6 +5,7 @@ import (
 	"auth0_demo/internal/config"
 	"auth0_demo/pkg/log"
 	"flag"
+	"os"
 
 	"go.uber.org/zap"
 )
@@ -43,7 +44,17 @@ func main() {
 	}
 
 	// Run the API
-	err = apiInstance.RunLocal()
+	// err = apiInstance.RunLocal()
+
+	// Check for Azure Functions environment
+	if port, exists := os.LookupEnv("FUNCTIONS_CUSTOMHANDLER_PORT"); exists {
+		// Running in Azure Functions environment
+		err = apiInstance.RunAzureFunction(port)
+	} else {
+		// Running locally
+		err = apiInstance.RunLocal()
+	}
+
 	if err != nil {
 		panic(err)
 	}
